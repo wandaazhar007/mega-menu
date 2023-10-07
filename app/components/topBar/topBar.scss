@@ -1,0 +1,182 @@
+@import '../../styles/responsive.scss';
+@import '../../styles/variable.scss';
+
+.topBar {
+  background-color: #f0f0f0;
+  padding: 1.5rem 0;
+
+  @include miniDesktop {
+    display: none;
+  }
+
+  .wrapContainer {
+    .boxTopBar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.4rem;
+
+      .topbarLeft {
+        .topBarUl {
+          display: flex;
+          list-style: none;
+          gap: 3rem;
+
+          .topBarLi {
+            .topBarlink {
+              color: grey;
+              position: relative;
+
+              &:hover {
+                color: #185ead;
+                transition: .5s all ease;
+
+                &::after {
+                  content: '';
+                  width: 100%;
+                  height: .2rem;
+                  background-color: #185ead;
+                  position: absolute;
+                  bottom: -.5rem;
+                  left: 0;
+                  border-radius: .1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .topbarRight {
+        .topBarUl {
+          display: flex;
+          list-style: none;
+          gap: 3rem;
+          align-items: center;
+
+          .topBarLi {
+            color: grey;
+            cursor: pointer;
+            position: relative;
+
+            .topBarlink {
+              color: grey;
+
+              &:hover {
+                color: #185ead;
+                transition: .5s all ease;
+
+                &::after {
+                  content: '';
+                  width: 100%;
+                  height: .2rem;
+                  background-color: #185ead;
+                  position: absolute;
+                  bottom: -.5rem;
+                  left: 0;
+                  border-radius: .1rem;
+                }
+              }
+            }
+
+            span {
+              display: flex;
+              align-items: center;
+
+              .icon {
+                width: 1.4rem;
+                color: grey;
+                margin-left: .5rem;
+              }
+            }
+
+            .topBarUlChild {
+              display: none;
+            }
+
+            .topBarUlChild.on {
+              position: absolute;
+              border: .01rem solid grey;
+              background-color: #f0f0f0;
+              padding: 3rem 2rem;
+              margin-top: 2rem;
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              gap: 3rem;
+              border-radius: 0 0 1rem 1rem;
+              width: 23rem;
+              z-index: 99;
+              cursor: auto;
+
+              .topBarLiChild {
+
+                .topBarLinkChild {
+                  color: grey;
+
+                  &:hover {
+                    box-sizing: border-box;
+                    position: relative;
+                    z-index: 3;
+                    color: white;
+
+                    &::before {
+                      content: '';
+                      background-color: #4182cc;
+
+                      padding: 2rem;
+                      position: absolute;
+                      left: -1rem;
+                      top: -1rem;
+                      z-index: -1;
+                      width: 90%;
+                      border-radius: .5rem;
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.topBar.on {
+  display: block;
+
+  .boxTopBar {
+    overflow: auto;
+    justify-content: flex-start;
+    font-size: 1.4rem;
+    padding: 0 4rem;
+    border: .1rem solid salmon;
+
+    .topbarLeft {
+      .topBarUl {
+        .topBarLi {
+          .topBarlink {}
+
+          .icon {}
+        }
+      }
+    }
+
+    .topbarRight {
+      .topBarUl {
+        .topBarLi {
+          .topBarlink {}
+
+          .topBarUlChild {
+            z-index: 999;
+
+            .topBarLiChild {
+              .topBarLinkChild {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
